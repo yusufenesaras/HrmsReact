@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+}
+
+.ui.google.plus.button{
+
+  position: relative !important;
+  right: -40px !important;
+}
+
+.ui.main.container{
+  margin-top: 3em !important;
+}
+
+.footer {
+  position: relative;
+  margin-top: 400px;
+  bottom: 0;
+  right: 1px;
+}
+
+
+.unmargin{
+  margin: 20!important;
+}
+
+.gridBack{
+  background-color: transparent !important ;
+}
+
+.ui.inverted.vertical.masthead.center.aligned.segment{
+  background-image:url(./images/hr-lifecycle@2x.png) !important;
+}
+
+.ui.large.secondary.inverted.pointing.menu{
+  border-radius: 12px !important;
+  border-color: lightblue !important;
+}
+
+.ui.inverted.button{
+  border: 1px solid lightblue !important;
+  
+}
+
+.ui.inverted.vertical.segment{
+  background-image:url(./images/2053097.png) !important;
+}
