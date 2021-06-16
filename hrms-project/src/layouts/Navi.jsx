@@ -1,50 +1,29 @@
 import React from "react";
-import { Button, Container, Dropdown, Menu,Icon } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Container,Button, Menu, Icon } from 'semantic-ui-react';
+import "../App.css";
 
 export default function Navi() {
   return (
-    
     <div>
-      <Menu inverted fixed size="large">
+      <Menu size="large" inverted stackable>
         <Container>
-        <Button inverted color='white' className="unmargin">
-        <Icon name="home" color="teal"/>
-        Home
-      </Button>
-      <Button inverted color='white'>
-      <Icon name="envelope open" color="teal"/>
-        Message
-      </Button>
-          <Menu.Menu position="right">
-           
-           
-
-            <Menu.Item>
-              <Button.Group>
-                <Button primary>Sign Up</Button>
-                <Button.Or />
-                <Button positive>Sign In</Button>
-              </Button.Group>
-              <button class="ui google plus button">
-                <i class="google plus icon"></i>
-                Google+
-              </button>
-              
-            </Menu.Item>
+          <Menu.Item name="Ana Sayfa" as={Link} to={"/"}>
+          <Icon name="home" />Ana Sayfa
+          </Menu.Item>
+          {/* <Menu.Item name="İş ilanları" as={Link} to={"/jobads"} />
+          <Menu.Item name="Cvler" as={Link} to={"/cvs"} /> */}
+          <Menu.Menu position="right" style={{ margin: '0.5em' }}>
+            <Button primary as={Link} to={"/jobAdCreate"}>
+              İlan Ekle
+            </Button>
+            <Button.Group>
+              <Button as={Link} to={"/login"}className="butlogin">Giriş yap</Button>
+              {/* <Button.Or /> */}
+              <Button  positive as={Link} to={"/register"} >Kaydol</Button>
+            </Button.Group>
           </Menu.Menu>
-       
         </Container>
-        {
-              <Dropdown item text="Language">
-                <Dropdown.Menu>
-                  <Dropdown.Item>English</Dropdown.Item>
-                  <Dropdown.Item>Russian</Dropdown.Item>
-                  <Dropdown.Item>Spanish</Dropdown.Item>
-                  <Dropdown.Item>French</Dropdown.Item>
-                  <Dropdown.Item>German</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            }
       </Menu>
     </div>
   );
