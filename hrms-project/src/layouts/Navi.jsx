@@ -19,7 +19,7 @@ export default function Navi() {
             </Button>
             <Button.Group>
               <Button as={Link} to={"/login"}className="butlogin">Giriş yap</Button>
-              {/* <Button.Or /> */}
+             
               <Button  positive as={Link} to={"/register"} >Kaydol</Button>
             </Button.Group>
           </Menu.Menu>

@@ -1,3 +1,56 @@
-/* .butlogin{
-   margin: 0.5em !important;
-} */
+.App {
+   text-align: center;
+ }
+
+ .ui.main.container{
+   margin-top: 3em !important;
+ }
+ 
+ .footer {
+   position: relative;
+   margin-top: 250px;
+   bottom: 0;
+   right: 1px;
+ }
+ 
+ 
+ .unmargin{
+   margin: 20!important;
+ }
+ 
+ .gridBack{
+   background-color: transparent !important ;
+ }
+
+ .ui.large.secondary.inverted.pointing.menu{
+   border-radius: 12px !important;
+   border-color: lightblue !important;
+ }
+ 
+ .ui.inverted.button{
+   border: 1px solid lightblue !important;
+   
+ }
+ .ui.grid{
+   padding: 30px !important;
+ 
+ }
+ 
+ .aktifResim{
+    width: 500px !important;
+   float: left !important;
+   margin-right: 2130px !important;
+ }
+ 
+ .dash{
+   border-radius: 200px !important;
+ }
+ 
+ .sideB{
+   background-color: teal !important;
+ }
+ 
+ .ui.table{
+   background-color: #cee5d0 !important;
+   border-radius: 5px !important;
+ }

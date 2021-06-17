@@ -65,7 +65,7 @@ export default function JobAds() {
             ))}
         </Table.Body>
 
-        {/* <Table.Footer>
+        <Table.Footer>
           <Table.Row>
             <Table.HeaderCell colSpan="6">
               <Menu floated="right" pagination>
@@ -82,7 +82,7 @@ export default function JobAds() {
               </Menu>
             </Table.HeaderCell>
           </Table.Row>
-        </Table.Footer> */}
+        </Table.Footer>
       </Table>
     </div>
   );

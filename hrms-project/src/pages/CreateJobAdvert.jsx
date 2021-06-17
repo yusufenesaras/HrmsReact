@@ -3,9 +3,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button, Dropdown, Input, TextArea, Card, Form, Grid } from "semantic-ui-react";
 import CityService from "../services/CityService";
-import JobPositionService from "../services/JobPositionService";
-import WorkTimeService from "../services/WorkTimeService";
-import WorkPlaceService from "../services/WorkPlaceService";
+import JobPositionService from "../services/JobTitleService";
+import WorkTimeService from "../services/WorkHourService";
+import WorkPlaceService from "../services/WorkTypeService";
 import JobAdService from "../services/JobAdService";
 import { useHistory } from "react-router-dom";
 
