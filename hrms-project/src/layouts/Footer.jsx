@@ -40,13 +40,12 @@ export default function Footer() {
                 </List>
               </Grid.Column>
               <Grid.Column width={7}>
-                <div class="descriptionPosition">
+                <div className="descriptionPosition">
                   <Header as="h2">
                     <Header.Content>
                       <font color="white">
                         <Icon name="hand point right" color="teal" />
                         Human Resource Management System <br />
-                        
                       </font>
                       <br />
                       <Icon name="github" color="teal" />
@@ -77,9 +76,8 @@ export default function Footer() {
                     <font color="white">
                       {" "}
                       Account Settings
-                      <GridRow>Manage your preferences</GridRow> 
+                      <GridRow>Manage your preferences</GridRow>
                     </font>
-                   
                   </Header.Content>
                 </Header>
               </GridColumn>

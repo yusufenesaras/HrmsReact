@@ -7,11 +7,16 @@ export default class JobAdService{
     getAll(){
         return axios.get("http://localhost:8080/api/jobAdvertisements/getall")
     }
-    getActiveAdsByCompanyId(id){
+    getEmployerJobAds(id){
         return axios.get("http://localhost:8080/api/jobAdvertisements/getEmployerJobAdvertisement?id="+id)
     }
-
     add(values){
         return axios.post("http://localhost:8080/api/jobAdvertisements/add",values)
+    }
+    getOneById(id){
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getOneById?id="+id)
+    }
+    getAllActiveWithSorted(){
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getallactivesorted")
     }
 }

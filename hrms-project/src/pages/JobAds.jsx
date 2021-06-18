@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon, Menu, Table, Button } from "semantic-ui-react";
 import JobAdService from "../services/JobAdService";
-import CityService from '../services/CityService';
+
 
 export default function JobAds() {
 
@@ -33,7 +33,7 @@ export default function JobAds() {
 
   return (
     <div>
-      <Table celled color={"black"}>
+      <Table celled color={"teal"}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Şirket Adı</Table.HeaderCell>
