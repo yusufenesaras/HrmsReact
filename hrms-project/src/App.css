@@ -55,3 +55,15 @@
   background-color: whitesmoke !important;
   border-radius: 5px !important;
 }
+.nSegment{
+  border-radius: 20px !important;
+  border-color: teal !important;
+  background-color: black !important;
+ 
+}
+.nMenu{
+  border-radius: 10px !important;
+  border-color: black !important;
+  
+} 
+

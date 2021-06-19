@@ -235,7 +235,6 @@ export default function JobAdCreate() {
                 </Grid.Column>
               </Grid>
             </Form.Field>
-
             <Form.Field>
               <Grid stackable>
                 <Grid.Column width={8}>

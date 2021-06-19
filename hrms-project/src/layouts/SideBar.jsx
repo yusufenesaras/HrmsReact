@@ -7,12 +7,12 @@ export default function Categories() {
     <div>
       <Menu fluid compact icon="labeled" vertical>
         <Menu.Item as={Link} to={"/jobads"}>
-            <Icon name="list" />
+            <Icon name="bullhorn" />
             İş ilanları        
         </Menu.Item>
-
+    
         <Menu.Item as={Link} to={"/employers"}>
-            <Icon name="factory" />
+            <Icon name="users" />
             İş verenler       
         </Menu.Item>
 

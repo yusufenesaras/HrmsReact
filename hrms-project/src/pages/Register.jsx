@@ -13,7 +13,7 @@ export default function Register() {
   return (
     <div>
       <Header as="h2" color="teal" textAlign="center">
-        <Image src="https://hrms.ph/img/logo-large.png" /> Kayıt Ol
+        <Image src="http://4chijhy3n9-flywheel.netdna-ssl.com/wp-content/uploads/2020/07/registration-icon.png" /> Kayıt Ol
       </Header>
       <Form size="large">
         <Segment stacked>
@@ -82,7 +82,7 @@ export default function Register() {
           </Button>
         </Segment>
       </Form>
-      <Message info>İşveren olarak kaydolmak için buraya tıkla</Message>
+      <Message info>İşveren olarak kaydol</Message>
     </div>
   );
 }

@@ -5,12 +5,12 @@ import "../App.css";
 
 export default function Navi() {
   return (
-    <div className="navi" inverted>
-      <Segment inverted>
-        <Menu size="big" inverted secondary>
+    <div>
+      <Segment className="nSegment" inverted>
+        <Menu size="big" className= "nMenu" inverted>
           <Container>
             <Menu.Item name="Ana Sayfa" as={Link} to={"/"}>
-              <Icon name="home" color="teal" />
+              <Icon name="home" color="teal"/>
               Ana Sayfa
             </Menu.Item>
             <Button
@@ -36,8 +36,7 @@ export default function Navi() {
                   to={"/register"}
                   basic
                   inverted
-                  color="red"
-                >
+                  color="red">
                   Kaydol
                 </Button>
               </Button.Group>

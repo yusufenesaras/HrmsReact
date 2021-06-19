@@ -1,37 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Form, Header, Image, Message, Segment } from 'semantic-ui-react'
-
+import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
 export default function Login() {
   return (
     <div>
-      <Header as="h2" color="teal" textAlign="center">
-        <Image src="https://hrms.ph/img/logo-large.png" /> Giriş Yap
-      </Header>
-      <Form size="large">
-        <Segment stacked>
+      <Segment placeholder>
+    <Grid columns={2} relaxed='very' stackable>
+      <Grid.Column>
+        <Form>
           <Form.Input
-            fluid
-            icon="user"
-            iconPosition="left"
-            placeholder="E-mail adresi"
+            icon='user'
+            iconPosition='left'
+            label='Email'
+            placeholder='Email'
           />
           <Form.Input
-            fluid
-            icon="lock"
-            iconPosition="left"
-            placeholder="Şifre"
-            type="password"
+            icon='lock'
+            iconPosition='left'
+            label='Password'
+            type='password'
           />
 
-          <Button color="teal" fluid size="large" disabled>
-            Giriş Yap
-          </Button>
-        </Segment>
-      </Form>
-      <Message>
-        Kayıtlı değilmisin? <Link to={"/register"}>Şimdi Kaydol</Link>
-      </Message>
+          <Button content='Login' primary />
+        </Form>
+      </Grid.Column>
+
+      <Grid.Column verticalAlign='middle'>
+        <Button icon='signup' size='big'>
+          <Link to={"/register"}>SignUp</Link>
+        </Button>
+      </Grid.Column>
+    </Grid>
+
+    <Divider vertical>Or</Divider>
+  </Segment>
     </div>
   );
 }

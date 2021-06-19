@@ -1,5 +1,5 @@
 import React from "react";
-import Categories from "./Categories";
+import Categories from "./SideBar";
 import Navi from "./Navi";
 import { Container, Grid } from "semantic-ui-react";
 import "./Dashboard.css";
