@@ -8,9 +8,10 @@ export default function Categories() {
       <Menu fluid compact icon="labeled" vertical>
         <Menu.Item as={Link} to={"/jobads"}>
             <Icon name="bullhorn" />
+            
             İş ilanları        
         </Menu.Item>
-    
+   
         <Menu.Item as={Link} to={"/employers"}>
             <Icon name="users" />
             İş verenler       

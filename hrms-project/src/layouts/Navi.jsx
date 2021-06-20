@@ -6,7 +6,6 @@ import "../App.css";
 export default function Navi() {
   return (
     <div>
-      <Segment className="nSegment" inverted>
         <Menu size="big" className= "nMenu" inverted>
           <Container>
             <Menu.Item name="Ana Sayfa" as={Link} to={"/"}>
@@ -43,7 +42,6 @@ export default function Navi() {
             </Menu.Menu>
           </Container>
         </Menu>
-      </Segment>
     </div>
   );
 }

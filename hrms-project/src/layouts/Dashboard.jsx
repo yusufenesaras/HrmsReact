@@ -12,6 +12,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import JobAdCreate from "../pages/CreateJobAdvert";
 import Footer from "./Footer";
+import Start from "./Start"
 
 export default function Dashboard() {
   return (
@@ -20,17 +21,17 @@ export default function Dashboard() {
       <Container className="main">
         <Grid stackable>
           <Grid.Column width={4}>
-            <Categories />
+            <Categories/>
           </Grid.Column>
           <Grid.Column width={12}>
-            <Route exact path="/" component={JobAds} />
+            <Route exact path="/" component={Start}/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/employers" component={Employers} />
             {/* <Route exact path="/employers/:id" component={EmployerDetail} /> */}
             <Route exact path="/jobads" component={JobAds} />
             <Route exact path="/jobAdCreate" component={JobAdCreate} />
-            {<Route exact path="/jobads/:id" component={JobAdDetail} /> }
+            <Route exact path="/jobads/:id" component={JobAdDetail} />
           </Grid.Column>
         </Grid>
       </Container>

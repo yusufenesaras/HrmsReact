@@ -113,7 +113,7 @@ export default function JobAdCreate() {
     <div>
       <Card fluid>
         <Card.Content header="İş ilanı Ekle" />
-        <Card.Content>
+        <Card.Content >
           <Form onSubmit={formik.handleSubmit}>
             <Form.Field style={{ marginBottom: "1rem" }}>
               <Dropdown
