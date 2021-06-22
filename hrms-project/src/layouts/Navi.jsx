@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Button, Menu, Icon, Segment } from "semantic-ui-react";
+import { Container, Button, Menu, Icon} from "semantic-ui-react";
 import "../App.css";
 
 export default function Navi() {

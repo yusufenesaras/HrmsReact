@@ -1,33 +1,25 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon, Menu, Table, Button } from "semantic-ui-react";
 import JobAdService from "../services/JobAdService";
-
+import CityService from "../services/CityService";
 
 export default function JobAds() {
+  const [cities, setCities] = useState([]);
 
-  // const [cities, setCities] = useState([]);
+  useEffect(() => {
+    let cityService = new CityService();
+    cityService.getCitys().then((result) => setCities(result.data.data));
+  }, []);
 
-  // useEffect(() => {
-  //     let cityService = new CityService();
-  //     cityService.getAll().then((result)=> setCities(result.data.data));
-  // }, []);
-
-  // const cityOption = cities.map((city)=>({
-  //     key: city.id ,
-  //     text:city.cityName,
-  //     value:city.id,
-  // }))
-
-    ////////
 
   const [adverts, setAdverts] = useState([]);
 
   useEffect(() => {
-    let jobAdService = new JobAdService()
+    let jobAdService = new JobAdService();
     jobAdService.getActiveJobAds().then((result) => {
       setAdverts(result.data.data);
-    
     });
   }, []);
 
@@ -37,7 +29,7 @@ export default function JobAds() {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Şirket Adı</Table.HeaderCell>
-            {/* <Table.HeaderCell>Şehir</Table.HeaderCell> */}
+            <Table.HeaderCell>Şehir</Table.HeaderCell>
             <Table.HeaderCell>Pozisyon</Table.HeaderCell>
             <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
             <Table.HeaderCell>Çalışma Yeri</Table.HeaderCell>
@@ -46,23 +38,24 @@ export default function JobAds() {
         </Table.Header>
 
         <Table.Body key={JobAds.id}>
-          {
-            adverts.map(jobAd => (
+          {adverts.map((jobAd) => (
             <Table.Row key={jobAd.id}>
               <Table.Cell>{jobAd.employer.companyName}</Table.Cell>
-              {/* <Table.Cell>{jobAd.cityName}</Table.Cell> */}
+              <Table.Cell>{jobAd.city.cityName}</Table.Cell>
               <Table.Cell>{jobAd.jobtitle.title}</Table.Cell>
               <Table.Cell>{jobAd.workType.workType}</Table.Cell>
               <Table.Cell>{jobAd.workHour.workHours}</Table.Cell>
               <Table.Cell>
-                <Button as={Link} to={`/jobads/${jobAd.id}`}
+                <Button
+                  as={Link}
+                  to={`/jobads/${jobAd.id}`}
                   content="Detayları Gör"
                   icon="right arrow"
                   labelPosition="right"
                 />
               </Table.Cell>
             </Table.Row>
-            ))}
+          ))}
         </Table.Body>
 
         <Table.Footer>

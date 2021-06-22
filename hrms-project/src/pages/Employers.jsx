@@ -37,17 +37,17 @@ export default function Employers() {
                 <Button
                   basic
                   color="green"
-                  as={Link}
-                  to={`/employers/${employer.id}`}
+                  // as={Link}
+                  // to={`/employers/${employer.id}`}
                 >
                   Detaylar
                 </Button>
 
                 <Button basic color="blue">
                   <a
-                    href={"https://" + employer.webAddress}
-                    target={"_blank"}
-                    rel="noopener noreferrer"
+                    // href={"https://" + employer.webAddress}
+                    // target={"_blank"}
+                    // rel="noopener noreferrer"
                   >
                     Web Sitesi
                   </a>

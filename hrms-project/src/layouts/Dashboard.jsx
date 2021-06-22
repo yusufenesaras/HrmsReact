@@ -7,7 +7,6 @@ import JobAds from "../pages/JobAds";
 import Employers from "../pages/Employers";
 import { Route } from "react-router";
 import JobAdDetail from "../pages/JobAdDetail";
-import EmployerDetail from "../pages/EmployerDetail";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import JobAdCreate from "../pages/CreateJobAdvert";
@@ -28,7 +27,6 @@ export default function Dashboard() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/employers" component={Employers} />
-            {/* <Route exact path="/employers/:id" component={EmployerDetail} /> */}
             <Route exact path="/jobads" component={JobAds} />
             <Route exact path="/jobAdCreate" component={JobAdCreate} />
             <Route exact path="/jobads/:id" component={JobAdDetail} />

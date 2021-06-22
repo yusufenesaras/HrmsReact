@@ -67,9 +67,15 @@
 } 
 
 .segment.getSegment{
-  border-color: lightskyblue !important;
+  border-color: teal !important;
+  background-color: rgb(212, 228, 238) !important;
 }
 
-.ui.segment{
-  border-color: mediumaquamarine !important;
+.ui.compact.fluid.vertical.labeled.icon.menu{
+  border-radius: 20px !important;
+  background-color: whitesmoke !important;
+}
+
+.startDesign{
+  background-color: rgb(212, 228, 238) !important;
 }

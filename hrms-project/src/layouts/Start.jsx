@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 export default function Get() {
   return (
     <div>
-      <Segment class="ui tertiary inverted lightblue segment">
+      <Segment className="startDesign">
         <div>
           <Segment placeholder className="getSegment">
             <Grid columns={2} stackable textAlign="center">
