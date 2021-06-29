@@ -9,11 +9,13 @@ import {
   Segment,
 } from "semantic-ui-react";
 
+import { Link } from "react-router-dom";
 export default function Register() {
   return (
     <div>
       <Header as="h2" color="teal" textAlign="center">
-        <Image src="http://4chijhy3n9-flywheel.netdna-ssl.com/wp-content/uploads/2020/07/registration-icon.png" /> Kayıt Ol
+        <Image src="http://4chijhy3n9-flywheel.netdna-ssl.com/wp-content/uploads/2020/07/registration-icon.png" />{" "}
+        Kayıt Ol
       </Header>
       <Form size="large">
         <Segment stacked>
@@ -76,13 +78,12 @@ export default function Register() {
             </Grid.Column>
           </Grid>
 
-            <br/>
+          <br />
           <Button color="teal" fluid size="large" disabled>
             Kayıt Ol
           </Button>
         </Segment>
       </Form>
-      <Message info>İşveren olarak kaydol</Message>
     </div>
   );
 }

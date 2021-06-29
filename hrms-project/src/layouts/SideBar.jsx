@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon, Menu } from 'semantic-ui-react'
-
 export default function Categories() {
   return (
     <div>
@@ -17,11 +16,12 @@ export default function Categories() {
             İş verenler       
         </Menu.Item>
 
-        {/* <Menu.Item as={Link} to={"/cvs"}>
+        <Menu.Item as={Link} to={"/cvs"}>
           <Icon name="wordpress forms" />
           Cvler
-        </Menu.Item> */}
+        </Menu.Item> 
       </Menu>
+      
     </div>
   );
 }

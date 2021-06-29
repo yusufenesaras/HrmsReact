@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import JobAdService from "../services/JobAdService";
-import { Header, Icon, Table, Grid, Card } from "semantic-ui-react";
+import { Header, Icon, Table, Grid} from "semantic-ui-react";
 
 export default function JobAdDetail() {
   let { id } = useParams();
-
   const [jobAdvertisement, setJobAdvertisement] = useState([]);
+
   useEffect(() => {
     let jobAdService = new JobAdService();
     jobAdService

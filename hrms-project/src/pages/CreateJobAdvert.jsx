@@ -78,9 +78,9 @@ export default function JobAdCreate() {
     workPlaceService
       .getWorkPlaces()
       .then((result) => setWorkPlaces(result.data.data));
-    cityService.getCitys().then((result) => setCities(result.data.data));
+    cityService.getAll().then((result) => setCities(result.data.data));
     jobPositionService
-      .getJobPositions()
+      .getJobTitles()
       .then((result) => setJobPositions(result.data.data));
   }, []);
 
@@ -113,7 +113,7 @@ export default function JobAdCreate() {
     <div>
       <Card fluid>
         <Card.Content header="İş ilanı Ekle" />
-        <Card.Content >
+        <Card.Content>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Field style={{ marginBottom: "1rem" }}>
               <Dropdown

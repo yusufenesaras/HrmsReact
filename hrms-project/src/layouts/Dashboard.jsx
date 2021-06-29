@@ -1,5 +1,5 @@
 import React from "react";
-import Categories from "./SideBar";
+import SideBar from "./SideBar";
 import Navi from "./Navi";
 import { Container, Grid } from "semantic-ui-react";
 import "./Dashboard.css";
@@ -11,7 +11,13 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import JobAdCreate from "../pages/CreateJobAdvert";
 import Footer from "./Footer";
-import Start from "./Start"
+import Start from "./Start";
+import CvList from "../pages/CvList";
+import CvDetail from "../pages/CvDetail";
+import Filter from "./Filter";
+import EmployerRegister from "../pages/EmployerRegister";
+import CandidateRegister from "../pages/CandidateRegister";
+import CandidateCvUpdate from "../pages/CvUpdate/CandidateCvUpdate";
 
 export default function Dashboard() {
   return (
@@ -20,16 +26,23 @@ export default function Dashboard() {
       <Container className="main">
         <Grid stackable>
           <Grid.Column width={4}>
-            <Categories/>
+            <SideBar /> <br/>
+            {/* <Filter /> */}
           </Grid.Column>
           <Grid.Column width={12}>
-            <Route exact path="/" component={Start}/>
+            <Route exact path="/" component={Start} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/employers" component={Employers} />
             <Route exact path="/jobads" component={JobAds} />
             <Route exact path="/jobAdCreate" component={JobAdCreate} />
             <Route exact path="/jobads/:id" component={JobAdDetail} />
+            <Route exact path="/cvs" component={CvList} />
+            <Route exact path="/cvs/:id" component={CvDetail} />
+            <Route exact path="/employerRegister" component={EmployerRegister} />
+            <Route exact path="/candidateRegister" component={CandidateRegister} />
+            <Route exact path='/candidate/resumes' component={CvList} />
+            <Route exact path='/cvs/edit/:id' component={CandidateCvUpdate} />
           </Grid.Column>
         </Grid>
       </Container>
