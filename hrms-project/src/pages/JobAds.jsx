@@ -3,7 +3,6 @@ import React, {
   useEffect,
   useState,
   useDispatch,
-  useSelector,
   useParams,
 } from "react";
 import { Link } from "react-router-dom";
