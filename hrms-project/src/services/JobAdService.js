@@ -19,8 +19,15 @@ export default class JobAdService{
     getAllActiveWithSorted(){
         return axios.get("http://localhost:8080/api/jobAdvertisements/getallactivesorted")
     }
-    getFilter(pageNo,pageSize){
+    getPageNoPageSize(pageNo,pageSize){
         return axios.post("http://localhost:8080/api/jobAdvertisements/getConfirmedJobAdsWithPageable?pageNo=1&pageSize="+pageNo,pageSize)
     }
-    
+    getAllActive(){
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getallactive")
+    }
+
+    changeActiveStatus(id){
+        return axios.post("http://localhost:8080/api/jobAdvertisements/changeactivestatus?id="+id)
+        
+      }
 }

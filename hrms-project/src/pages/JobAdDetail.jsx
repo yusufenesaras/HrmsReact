@@ -16,6 +16,7 @@ export default function JobAdDetail() {
 
   return (
     <div>
+      <h2>İş İlanı Detayı</h2>
       <div>
         <Grid stackable>
           <Grid.Row>

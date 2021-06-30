@@ -39,9 +39,7 @@ export default function CandidateCvUpdate() {
 
   useEffect(() => {
     let candidateService = new CandidateService();
-    candidateService
-      .findByCvId(candidateId)
-      .then((results) => setCv(results.data.data));
+    candidateService.findByCvId(candidateId).then((results) => setCv(results.data.data));
 
     let candidateSchoolService = new CandidateSchoolService();
     candidateSchoolService.findByCandidateId(candidateId).then((results) => {
@@ -239,7 +237,7 @@ export default function CandidateCvUpdate() {
                         onClick={() =>
                           arrayHelpers.push({
                             id: -1,
-                            school: "",
+                            schoolName: "",
                             department: "",
                             entryDate: "",
                             graduationDate: "",
@@ -409,7 +407,7 @@ export default function CandidateCvUpdate() {
                       </h3>
                       <Button
                         onClick={() =>
-                          arrayHelpers.push({ id: -1, name: "", level: "" })
+                          arrayHelpers.push({ id: -1, schoolName: "", level: "" })
                         }
                         type="button"
                         color="teal"

@@ -14,10 +14,14 @@ import Footer from "./Footer";
 import Start from "./Start";
 import CvList from "../pages/CvList";
 import CvDetail from "../pages/CvDetail";
-import Filter from "./Filter";
 import EmployerRegister from "../pages/EmployerRegister";
 import CandidateRegister from "../pages/CandidateRegister";
 import CandidateCvUpdate from "../pages/CvUpdate/CandidateCvUpdate";
+import AdminPanel from "../pages/AdminPanel";
+import AdminJobAdvertList from "../pages/AdminJobAdvertList";
+import AdminEmployers from "../pages/AdminAllEmployers";
+import AdminAllEmployers from "../pages/AdminAllEmployers";
+import AdminAllEmployersVerifyFalse from "../pages/AdminAllEmployersVerifyFalse";
 
 export default function Dashboard() {
   return (
@@ -43,6 +47,11 @@ export default function Dashboard() {
             <Route exact path="/candidateRegister" component={CandidateRegister} />
             <Route exact path='/candidate/resumes' component={CvList} />
             <Route exact path='/cvs/edit/:id' component={CandidateCvUpdate} />
+            <Route path="/adminpanel" component={AdminPanel}/>
+            <Route path="/adminjobadvertlist" component={AdminJobAdvertList}/>
+            <Route path="/adminemployer" component={AdminEmployers} />
+            <Route path="/adminallemployers" component={AdminAllEmployers}/>
+            <Route path="/adminallemployersverifyfalse" component={AdminAllEmployersVerifyFalse}/>
           </Grid.Column>
         </Grid>
       </Container>

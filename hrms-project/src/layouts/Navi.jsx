@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Button, Menu, Icon} from "semantic-ui-react";
 import "../App.css";
+import FavoriteSummary from "./FavoriteSummary";
 
 export default function Navi() {
   return (
@@ -12,6 +13,7 @@ export default function Navi() {
               <Icon name="home" color="teal"/>
               Ana Sayfa
             </Menu.Item>
+            <FavoriteSummary/>
             <Button
               primary
               as={Link}

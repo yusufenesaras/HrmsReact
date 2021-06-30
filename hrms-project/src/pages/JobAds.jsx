@@ -1,33 +1,34 @@
 /* eslint-disable no-unused-vars */
-import React, {
-  useEffect,
-  useState,
-  useDispatch,
-  useParams,
-} from "react";
+import React, { useEffect, useState, useParams } from "react";
 import { Link } from "react-router-dom";
-import {
-  Icon,
-  Menu,
-  Table,
-  Button,
-  Radio,
-  Segment,
-  GridColumn,
-  GridRow,
-  Rating,
-} from "semantic-ui-react";
+import {Icon,Menu,Table,Button,GridColumn,GridRow,Pagination,Rating,} from "semantic-ui-react";
 import JobAdService from "../services/JobAdService";
 import CityFilter from "../layouts/CityFilter";
 import WorkTypeFilter from "../layouts/WorkTypeFilter";
+import { addToFavorite } from "../store/actions/favoriteAction";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
 export default function JobAds() {
   const [adverts, setAdverts] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
   const [filteredJobAdverts, setFilteredJobAdverts] = useState(null); //filtrelenmiş state
+  const [activePage, setActivePage] = useState(1);
+  const [pageSize, setPageSize] = useState(2);
+
+  const dispatch = useDispatch();
+
+  // const dispatch = useDispatch();
+  let jobAdService = new JobAdService();
+  useEffect(() => {
+    jobAdService
+      .getPageNoPageSize(activePage, pageSize)
+      .then((result) => setAdverts(result.data.data));
+  }, [activePage, pageSize]);
 
   useEffect(() => {
+    
     let jobAdService = new JobAdService();
     jobAdService.getActiveJobAds().then((result) => {
       setAdverts(result.data.data);
@@ -55,6 +56,20 @@ export default function JobAds() {
     }
     setFilteredJobAdverts(filteredJobByJobAdverts);
   }, [selectedCity, selectedWorkType]);
+
+  const handleAddToFavorite = (adverts) => {
+    dispatch(addToFavorite(adverts));
+    toast.success(`${adverts.jobtitle.title} Sepete eklendi!`);
+    console.log(adverts.jobtitle.title);
+  };
+
+  const onChange = (e, pageInfo) => {
+    setActivePage(pageInfo.activePage);
+  };
+
+  let pageAble = (pageNo) => {
+    setPageSize(pageNo);
+  };
 
   return (
     <div>
@@ -87,7 +102,7 @@ export default function JobAds() {
                 <Table.Row key={jobAdvert.id}>
                   <Table.Cell>{jobAdvert.employer.companyName}</Table.Cell>
                   <Table.Cell>{jobAdvert.city.cityName}</Table.Cell>
-                  <Table.Cell>{jobAdvert?.jobtitle.title}</Table.Cell>
+                  <Table.Cell>{jobAdvert?.jobtitle?.title}</Table.Cell>
                   <Table.Cell>{jobAdvert.workType.workType}</Table.Cell>
                   <Table.Cell>{jobAdvert.workHour.workHours}</Table.Cell>
                   <Table.Cell>
@@ -115,27 +130,38 @@ export default function JobAds() {
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <Segment compact>
-                      <Radio toggle />
-                    </Segment>
+                  <Rating
+                        onClick={() => handleAddToFavorite(jobAdvert)}
+                        icon="heart"
+                        defaultRating={0}
+                        maxRating={1}
+                      />
                   </Table.Cell>
+                  <Table.Footer></Table.Footer>
                 </Table.Row>
               ))}
         </Table.Body>
-
         <Table.Footer>
           <Table.Row>
             <Table.HeaderCell colSpan="6">
               <Menu floated="right" pagination>
                 <Menu.Item as="a" icon>
-                  <Icon name="chevron left" />
-                </Menu.Item>
-                <Menu.Item as="a">1</Menu.Item>
-                <Menu.Item as="a">2</Menu.Item>
-                <Menu.Item as="a">3</Menu.Item>
-                <Menu.Item as="a">4</Menu.Item>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron right" />
+                  <Pagination
+                    activePage={activePage}
+                    onPageChange={onChange}
+                    totalPages={10}
+                  />
+                  <p></p>
+                
+                  <Button.Group>
+                    <Button onClick={() => pageAble(10)}>10</Button>
+                    <Button.Or />
+                    <Button onClick={() => pageAble(20)}>20</Button>
+                    <Button.Or />
+                    <Button>50</Button>
+                    <Button.Or />
+                    <Button>100</Button>
+                  </Button.Group>
                 </Menu.Item>
               </Menu>
             </Table.HeaderCell>

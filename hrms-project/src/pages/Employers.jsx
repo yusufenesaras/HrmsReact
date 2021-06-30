@@ -38,7 +38,7 @@ export default function Employers() {
                   basic
                   color="green"
                   as={Link}
-                  to={`/employers/${employer.id}`}
+                  // to={`/employers/${employer.id}`}
                 >
                   Detaylar
                 </Button>
