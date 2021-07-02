@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useParams } from "react";
 import { Link } from "react-router-dom";
-import {Icon,Menu,Table,Button,GridColumn,GridRow,Pagination,Rating,} from "semantic-ui-react";
+import {Menu,Table,Button,GridColumn,GridRow,Pagination,Rating,} from "semantic-ui-react";
 import JobAdService from "../services/JobAdService";
 import CityFilter from "../layouts/CityFilter";
 import WorkTypeFilter from "../layouts/WorkTypeFilter";

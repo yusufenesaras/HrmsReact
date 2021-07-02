@@ -100,7 +100,7 @@ export default function CvDetail() {
         </Table.Header>
         <Table.Body>
           {cv.map((cv) => (
-            <Table.Cell>{cv?.talents[0].talent.talentName}</Table.Cell>
+            <Table.Cell>{cv?.talents[0].talentName}</Table.Cell>
           ))}
         </Table.Body>
       </Table>
@@ -113,7 +113,7 @@ export default function CvDetail() {
         </Table.Header>
         <Table.Body>
           {cv.map((cv) => (
-            <Table.Cell>{cv?.languages[0].language.languagesName}</Table.Cell>
+            <Table.Cell>{cv?.languages[0].languagesName}</Table.Cell>
           ))}
         </Table.Body>
       </Table>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useFormik } from "formik";
 import {
   Button,
@@ -11,48 +11,50 @@ import {
 } from "semantic-ui-react";
 import * as Yup from "yup";
 import EmployerService from "../services/EmployerService";
+export default function ActiveEmployerUpdate({ employer }) {
 
-export default function EmployerUpdate({ employer }) {
-  const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
-  let employerService = new EmployerService();
+    let employerService = new EmployerService();
+  
+    // console.log(employer);
+    //console.log(employer?.id)
+    const { values, errors, handleChange, handleSubmit, touched } = useFormik({
+      initialValues: {
+        id: employer?.id,
+        email: employer?.email,
+        password: employer?.password,
+        companyName: employer?.companyName,
+        webAdress: employer?.webAdress,
+        phoneNumber: employer?.phoneNumber,
+        active: true,
+        deleted: false,
+        verified: true,
+      },
+      enableReinitialize: true,
+      validationSchema: Yup.object({
+        password: Yup.string().required("şifre boş bırakılamaz"),
+        companyName: Yup.string().required("şirket Adı boş bırakılamaz"),
+        website: Yup.string().required("website adı boş bırakılamaz"),
+      }),
+      onSubmit: (values) => {
+       console.log("güncellendi")
+       //changeIsVerified(employer?.id)
+        employerService
+          .update(values)
+          .then(()=>{changeIsVerified(employer?.id);})
+          
+      },
+    });
+  
+    let changeIsVerified= (id)=>{
+  employerService.changeVerifiedStatus(id);
+    }
+  
 
-  // console.log(employer);
-  //console.log(employer?.id)
-  const { values, errors, handleChange, handleSubmit, touched } = useFormik({
-    initialValues: {
-      id: employer?.id,
-      email: employer?.email,
-      password: employer?.password,
-      companyName: employer?.companyName,
-      webAdress: employer?.webAdress,
-      phoneNumber: employer?.phoneNumber,
-      active: true,
-      deleted: false,
-      verified: true,
-    },
-    enableReinitialize: true,
-    validationSchema: Yup.object({
-      password: Yup.string().required("şifre boş bırakılamaz"),
-      companyName: Yup.string().required("şirket Adı boş bırakılamaz"),
-      website: Yup.string().required("website adı boş bırakılamaz"),
-    }),
-    onSubmit: (values) => {
-      console.log("güncellendi");
-      //changeIsVerified(employer?.id)
-      employerService.update(values).then(() => {
-        changeIsVerified(employer?.id);
-      });
-    },
-  });
-
-  let changeIsVerified = (id) => {
-    employerService.changeVerifiedStatus(id);
-  };
-
-  return (
-    <div>
-      <Modal
+    return (
+        <div>
+              <Modal
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
@@ -169,6 +171,6 @@ export default function EmployerUpdate({ employer }) {
           </Form>
         </Modal.Description>
       </Modal>
-    </div>
-  );
+        </div>
+    )
 }

@@ -10,12 +10,13 @@ import {
   Icon,
   Message,
 } from "semantic-ui-react";
-
-import CandidateService from "../../services/CandidateCvService";
+import swal from "sweetalert";
+import CandidateCvService from "../../services/CandidateCvService";
 import CandidateJobExperienceService from "../../services/CandidateJobExperienceService";
 import CandidateLanguageService from "../../services/CandidateLanguageService";
 import CandidateTalentService from "../../services/CandidateTalentService";
 import CandidateSchoolService from "../../services/CandidateSchoolService";
+import CandidateService from "../../services/CandidateCvService";
 
 export default function CandidateCvUpdate() {
   const candidateId = 1;
@@ -39,7 +40,9 @@ export default function CandidateCvUpdate() {
 
   useEffect(() => {
     let candidateService = new CandidateService();
-    candidateService.findByCvId(candidateId).then((results) => setCv(results.data.data));
+    candidateService
+      .findByCvId(candidateId)
+      .then((results) => setCv(results.data.data));
 
     let candidateSchoolService = new CandidateSchoolService();
     candidateSchoolService.findByCandidateId(candidateId).then((results) => {
@@ -99,6 +102,8 @@ export default function CandidateCvUpdate() {
     githubUrl: cv.githubAddress,
     linkedInUrl: cv.linkedinAddress,
     description: cv.coverLetter,
+    entryDate: cv.entryDate,
+    graduationDate: cv.graduationDate,
     educationEditDtoList: educations,
     experienceEditDtoList: experiences,
     languageEditDtoList: languages,
@@ -133,7 +138,7 @@ export default function CandidateCvUpdate() {
 
   const talentsValidationSchema = Yup.object().shape({
     id: Yup.number(),
-    talentName: Yup.string().required("Boş bırakılamaz"),
+    talents: Yup.string().required("Boş bırakılamaz"),
   });
 
   const validationSchema = Yup.object({
@@ -155,15 +160,15 @@ export default function CandidateCvUpdate() {
           enableReinitialize
           initialValues={initialValues}
           validationSchema={validationSchema}
-          // onSubmit={(values) => {
-          //   values.educationDeleteList = deletedEducations;
-          //   values.experienceDeleteList = deletedExperiences;
-          //   values.languageDeleteList = deletedLanguages;
-          //   values.talentDeleteList = deletedTalents;
-          //   let candidateService = new CandidateService();
-          //   candidateService.edit(values);
-          //   history.push("/cvs");
-          // }}
+          onSubmit={(values) => {
+            values.educationDeleteList = deletedEducations;
+            values.experienceDeleteList = deletedExperiences;
+            values.languageDeleteList = deletedLanguages;
+            values.talentDeleteList = deletedTalents;
+            let candidateCvService = new CandidateCvService();
+            candidateCvService.update(values);
+            swal("Başarılı!", "Yetenek bilgisi güncellendi!", "success");
+          }}
         >
           {({ values }) => (
             <Form
@@ -257,7 +262,7 @@ export default function CandidateCvUpdate() {
                           style={{ clear: "both" }}
                         >
                           <Field
-                            name={`educationEditDtoList[${index}].name`}
+                            name={`educationEditDtoList[${index}].schoolName`}
                             placeholder="Okul Adı"
                             style={{ marginRight: "1em" }}
                           />
@@ -268,12 +273,12 @@ export default function CandidateCvUpdate() {
                         </SemanticForm.Group>
                         <SemanticForm.Group widths="equal">
                           <Field
-                            name={`educationEditDtoList[${index}].startDate`}
+                            name={`educationEditDtoList[${index}].entryDate`}
                             type="date"
                             style={{ marginRight: "1em" }}
                           />
                           <Field
-                            name={`educationEditDtoList[${index}].finishDate`}
+                            name={`educationEditDtoList[${index}].graduationDate`}
                             type="date"
                           />
                         </SemanticForm.Group>
@@ -407,7 +412,11 @@ export default function CandidateCvUpdate() {
                       </h3>
                       <Button
                         onClick={() =>
-                          arrayHelpers.push({ id: -1, schoolName: "", level: "" })
+                          arrayHelpers.push({
+                            id: -1,
+                            schoolName: "",
+                            level: "",
+                          })
                         }
                         type="button"
                         color="teal"

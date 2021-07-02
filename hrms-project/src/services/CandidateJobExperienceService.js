@@ -12,5 +12,15 @@ export default class candidateJobExperienceService{
     findByCandidateId(id){
         return axios.get("http://localhost:8080/api/candidateexperience/findByCandidateCvId?id="+id)
     }
+    add(values){
+        return axios.post("http://localhost:8080/api/candidateexperience/add",values)
+    }
 
+    update(values){
+        return axios.post("http://localhost:8080/api/candidateexperience/update",values)
+    }
+
+    delete(id){
+return axios.delete("http://localhost:8080/api/candidateexperience/delete?id="+id)
+    }
 }

@@ -18,4 +18,7 @@ export default class CandidateService{
     findByCvId(id){
         return axios.get("http://localhost:8080/api/cv/findbycvid?id="+id);
     }
+    update(values){
+        return axios.post("http://localhost:8080/api/cv/update",values)
+    }
 }

@@ -22,7 +22,15 @@ import AdminJobAdvertList from "../pages/AdminJobAdvertList";
 import AdminEmployers from "../pages/AdminAllEmployers";
 import AdminAllEmployers from "../pages/AdminAllEmployers";
 import AdminAllEmployersVerifyFalse from "../pages/AdminAllEmployersVerifyFalse";
-
+import CvUpdate from "../pages/CvUpdate/CvUpdate";
+import EmployerUpdate from "../pages/EmployerUpdate";
+import ActiveEmployer from "../pages/ActiveEmployer";
+import EmployerJobAdvertList from "../pages/EmployerJobAdvertList";
+import ActiveEmployerUpdate from "../pages/ActiveEmployerUpdate";
+import TalentUpdate from "../pages/CvUpdate/TalentUpdate";
+import LanguageUpdate from "../pages/CvUpdate/LanguageUpdate"
+import SchoolUpdate from "../pages/CvUpdate/SchoolUpdate";
+import ExpreienceUpdate from "../pages/CvUpdate/ExpreienceUpdate";
 export default function Dashboard() {
   return (
     <div>
@@ -38,6 +46,7 @@ export default function Dashboard() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/employers" component={Employers} />
+            <Route path="/employersUpdate" component={EmployerUpdate}/>
             <Route exact path="/jobads" component={JobAds} />
             <Route exact path="/jobAdCreate" component={JobAdCreate} />
             <Route exact path="/jobads/:id" component={JobAdDetail} />
@@ -45,13 +54,24 @@ export default function Dashboard() {
             <Route exact path="/cvs/:id" component={CvDetail} />
             <Route exact path="/employerRegister" component={EmployerRegister} />
             <Route exact path="/candidateRegister" component={CandidateRegister} />
-            <Route exact path='/candidate/resumes' component={CvList} />
-            <Route exact path='/cvs/edit/:id' component={CandidateCvUpdate} />
+            <Route exact path='/cvs/edit/:id' component={CandidateCvUpdate} /> 
+            <Route path="/cvUpdate" component={CvUpdate} />
             <Route path="/adminpanel" component={AdminPanel}/>
             <Route path="/adminjobadvertlist" component={AdminJobAdvertList}/>
             <Route path="/adminemployer" component={AdminEmployers} />
             <Route path="/adminallemployers" component={AdminAllEmployers}/>
             <Route path="/adminallemployersverifyfalse" component={AdminAllEmployersVerifyFalse}/>
+            <Route path="/activeemployer" component={ActiveEmployer} />
+            <Route path="/employerjobadvertlist" component={EmployerJobAdvertList}/>
+            <Route path="/activeEmployerUpdate" component={ActiveEmployerUpdate}/>
+            <Route path="/talentUpdate" component={TalentUpdate} />
+            <Route path="/langUpdate" component={LanguageUpdate} />
+            <Route path="/schoolUpdate" component={SchoolUpdate} />
+            <Route path="/expUpdate" component={ExpreienceUpdate} />
+
+
+
+
           </Grid.Column>
         </Grid>
       </Container>

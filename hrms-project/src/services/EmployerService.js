@@ -7,7 +7,7 @@ export default class EmployerService{
     addEmployers(values){
         return axios.post("http://localhost:8080/api/employers/add",values)
     }
-    updateEmployers(values){
+    update(values){
         return axios.post("http://localhost:8080/api/employers/update",values)
     }
     getByIdForAdmins(id){

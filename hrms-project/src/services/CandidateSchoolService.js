@@ -11,4 +11,13 @@ export default class candidateSchoolService{
     getSchoolWithOrdered(id){
         return axios.get("http://localhost:8080/api/candidateschools/getcandidateschoolswithordered?id="+id)
     }
+    update(values) {
+        return axios.post("http://localhost:8080/api/candidateschools/update",values);
+    }
+    delete(id){
+          return axios.delete("http://localhost:8080/api/candidateschools/delete?id="+id)
+    }
+    add(values){
+          return axios.post("http://localhost:8080/api/candidateschools/add",values)
+    }
 }

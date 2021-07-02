@@ -10,4 +10,10 @@ export default class candidateLanguageService{
     add(values){
         return axios.post("http://localhost:8080/api/candidatelanguages/add",values)
     }
+    update(values){
+        return axios.post("http://localhost:8080/api/candidatelanguages/update",values)
+    }
+    delete(id){
+    return axios.delete("http://localhost:8080/api/candidatelanguages/delete?id="+id)
+    }
 }

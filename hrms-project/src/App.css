@@ -55,49 +55,47 @@
   background-color: whitesmoke !important;
   border-radius: 5px !important;
 }
-.nSegment{
+.nSegment {
   border-radius: 5px !important;
   border-color: teal !important;
   background-color: black !important;
- 
 }
-.nMenu{
+.nMenu {
   border-radius: 3px !important;
   border-color: black !important;
-} 
+}
 
-.segment.getSegment{
+.segment.getSegment {
   border-color: teal !important;
   background-color: rgb(212, 228, 238) !important;
 }
 
-.ui.compact.fluid.vertical.labeled.icon.menu{
+.ui.compact.fluid.vertical.labeled.icon.menu {
   border-radius: 20px !important;
   background-color: whitesmoke !important;
 }
 
-.startDesign{
+.startDesign {
   background-color: rgb(212, 228, 238) !important;
 }
 
-.ui.vertical.w100.p1em.menu{
+.ui.vertical.w100.p1em.menu {
   border-radius: 10px !important;
-
 }
-.cardsUi{
-  left: 320px !important; 
+.cardsUi {
+  left: 320px !important;
 }
 
-.registerEmp{
+.registerEmp {
   width: 140px !important;
-  height: 45px !important; 
-  font-family: 'Roboto', sans-serif !important;
+  height: 45px !important;
+  font-family: "Roboto", sans-serif !important;
   font-size: 11px !important;
   text-transform: uppercase !important;
   letter-spacing: 2.5px !important;
   font-weight: 500 !important;
   color: #000 !important;
-  background-color: #fff !important;
+  background-color: #2185D0 !important;
   border: none !important;
   border-radius: 45px !important;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
@@ -106,18 +104,18 @@
   outline: none !important;
 }
 .button:hover {
-  background-color: #2EE59D !important;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4)!important;
-  color: #fff!important;
-  transform: translateY(-7px)!important;
+  background-color: #2ee59d !important;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4) !important;
+  color: #fff !important;
+  transform: translateY(-7px) !important;
 }
 .wrap {
   height: 100% !important;
   display: flex !important;
-  align-items: center!important;
+  align-items: center !important;
   justify-content: center !important;
 }
 
-.ui.info.message{
+.ui.info.message {
   background-color: transparent !important;
 }

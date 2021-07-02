@@ -4,6 +4,7 @@ import { Table, Label, Icon, Button } from "semantic-ui-react";
 import JobAdService from "../services/JobAdService";
 
 export default function AdminJobAdvertList() {
+  
   const [jobAdverts, setJobAdverts] = useState([]);
 
   useEffect(() => {
@@ -18,7 +19,6 @@ export default function AdminJobAdvertList() {
     jobAdService.changeActiveStatus(id);
     window.location.reload();
   };
-
   return (
     <div>
       <Table>

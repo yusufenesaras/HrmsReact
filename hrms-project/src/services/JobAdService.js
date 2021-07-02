@@ -28,6 +28,15 @@ export default class JobAdService{
 
     changeActiveStatus(id){
         return axios.post("http://localhost:8080/api/jobAdvertisements/changeactivestatus?id="+id)
-        
+      }
+      changeOpenStatus(id){
+        return axios.post("http://localhost:8080/api/jobAdvertisements/jobAdvertisementDisable?id="+id)
+      }
+      changeOpenStatus(id){
+        return axios.post("http://localhost:8080/api/jobAdvertisements/jobAdvertisementDisable?id="+id)
+      }
+      getAllOpenJobAdvertByEmployer(id) {
+        return axios.get("http://localhost:8080/api/jobAdvertisements/getEmployersActiveJobAdvertisement?id=" +id );
       }
 }
+

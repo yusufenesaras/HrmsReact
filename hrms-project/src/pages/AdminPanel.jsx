@@ -10,7 +10,9 @@ export default function AdminPanel() {
             <Link to="/adminjobadvertlist">
               <Card>
                 <Image
-                  src={"https://png.pngtree.com/png-vector/20190623/ourlarge/pngtree-documentfindjobsearch-blue-dotted-line-line-icon-png-image_1491365.jpg"}
+                  src={
+                    "https://png.pngtree.com/png-vector/20190623/ourlarge/pngtree-documentfindjobsearch-blue-dotted-line-line-icon-png-image_1491365.jpg"
+                  }
                   wrapped
                   ui={false}
                 />
@@ -37,7 +39,9 @@ export default function AdminPanel() {
             <Link to="/adminemployer">
               <Card>
                 <Image
-                  src={"https://www.nicepng.com/png/detail/674-6741279_employer-icon.png"}
+                  src={
+                    "https://www.nicepng.com/png/detail/674-6741279_employer-icon.png"
+                  }
                   wrapped
                   ui={false}
                   size="mini"
@@ -54,7 +58,7 @@ export default function AdminPanel() {
                 <Card.Content extra>
                   <a>
                     <Icon name="user" />
-                    22 Friends
+                    
                   </a>
                 </Card.Content>
               </Card>
