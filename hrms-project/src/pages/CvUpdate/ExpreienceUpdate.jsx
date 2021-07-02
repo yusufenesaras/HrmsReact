@@ -1,39 +1,36 @@
-import React from 'react'
+import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import {  Button } from "semantic-ui-react";
-import HrmsTextInput from "../../utilities/customFormControls/HrmsTextInput"
-import CandidateJobExperienceService from '../../services/CandidateJobExperienceService';
+import { Button } from "semantic-ui-react";
+import HrmsTextInput from "../../utilities/customFormControls/HrmsTextInput";
+import CandidateJobExperienceService from "../../services/CandidateJobExperienceService";
 
 export default function ExpreienceUpdate() {
-
-    const initialValues = 
-    { 
+  const initialValues = {
     id: 1,
     continue: "",
     entryDate: "",
     exitDate: "",
     jobDetail: "",
     workplaceName: "",
+  };
 
-    };
-  
-   const schema = Yup.object({
+  const schema = Yup.object({
     workplaceName: Yup.string().required("Boş geçilemez"),
     continue: Yup.boolean().required(),
     entryDate: Yup.date().required(),
     exitDate: Yup.date().required(),
     jobDetail: Yup.string().required(),
-   });
+  });
 
-
-    return (
-        <div>
-              <Formik
+  return (
+    <div>
+      <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={(values) => {
-          let candidateJobExperienceService = new CandidateJobExperienceService();
+          let candidateJobExperienceService =
+            new CandidateJobExperienceService();
           candidateJobExperienceService
             .update(values)
             .then((result) => console.log(result.data.data));
@@ -52,6 +49,6 @@ export default function ExpreienceUpdate() {
           </Button>
         </Form>
       </Formik>
-        </div>
-    )
+    </div>
+  );
 }

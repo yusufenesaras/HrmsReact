@@ -16,7 +16,6 @@ import CvList from "../pages/CvList";
 import CvDetail from "../pages/CvDetail";
 import EmployerRegister from "../pages/EmployerRegister";
 import CandidateRegister from "../pages/CandidateRegister";
-import CandidateCvUpdate from "../pages/CvUpdate/CandidateCvUpdate";
 import AdminPanel from "../pages/AdminPanel";
 import AdminJobAdvertList from "../pages/AdminJobAdvertList";
 import AdminEmployers from "../pages/AdminAllEmployers";
@@ -31,6 +30,7 @@ import TalentUpdate from "../pages/CvUpdate/TalentUpdate";
 import LanguageUpdate from "../pages/CvUpdate/LanguageUpdate"
 import SchoolUpdate from "../pages/CvUpdate/SchoolUpdate";
 import ExpreienceUpdate from "../pages/CvUpdate/ExpreienceUpdate";
+import CvListUpdate from "../pages/CvUpdate/CvListUpdate";
 export default function Dashboard() {
   return (
     <div>
@@ -39,7 +39,6 @@ export default function Dashboard() {
         <Grid stackable>
           <Grid.Column width={4}>
             <SideBar /> <br/>
-            {/* <Filter /> */}
           </Grid.Column>
           <Grid.Column width={12}>
             <Route exact path="/" component={Start} />
@@ -54,8 +53,6 @@ export default function Dashboard() {
             <Route exact path="/cvs/:id" component={CvDetail} />
             <Route exact path="/employerRegister" component={EmployerRegister} />
             <Route exact path="/candidateRegister" component={CandidateRegister} />
-            <Route exact path='/cvs/edit/:id' component={CandidateCvUpdate} /> 
-            <Route path="/cvUpdate" component={CvUpdate} />
             <Route path="/adminpanel" component={AdminPanel}/>
             <Route path="/adminjobadvertlist" component={AdminJobAdvertList}/>
             <Route path="/adminemployer" component={AdminEmployers} />
@@ -68,10 +65,8 @@ export default function Dashboard() {
             <Route path="/langUpdate" component={LanguageUpdate} />
             <Route path="/schoolUpdate" component={SchoolUpdate} />
             <Route path="/expUpdate" component={ExpreienceUpdate} />
-
-
-
-
+            <Route path="/candidateUpdate" component={CvListUpdate} />
+            <Route path="/cvs/edit/:id" component={CvUpdate} />
           </Grid.Column>
         </Grid>
       </Container>

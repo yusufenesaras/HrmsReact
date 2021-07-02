@@ -13,7 +13,12 @@ export default function Navi() {
               <Icon name="home" color="teal"/>
               Ana Sayfa
             </Menu.Item>
+            <Menu.Item name="HRMS Personel" as={Link} to={"/adminpanel"}>
+              <Icon name="user" color="teal"/>
+              Personel
+            </Menu.Item>
             <FavoriteSummary/>
+            
             <Button
               primary
               as={Link}

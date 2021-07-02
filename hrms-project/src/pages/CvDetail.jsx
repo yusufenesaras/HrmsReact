@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { Table,Image} from "semantic-ui-react";
+import { Table, Image } from "semantic-ui-react";
 import CandidateCvService from "../services/CandidateCvService";
 
 export default function CvDetail() {
@@ -11,35 +11,25 @@ export default function CvDetail() {
   useEffect(() => {
     let candidateCvService = new CandidateCvService();
 
-    candidateCvService.findByCandidateId(id).then((result) => setCv(result.data.data));
+    candidateCvService
+      .findByCandidateId(id)
+      .then((result) => setCv(result.data.data));
   }, [id]);
   return (
     <div>
-      
       <Table.Body key={cv.candidateId}>
-        {/* <CardGroup>
-        <Table.Header celled color={"black"}>
-          <Table.Row>
-          <Card fluid>
-            <Card.Content> */}
-              {cv.map((cv) => (
-                <Image
-                className="cardsUi"
-                  floated="center"
-                  size="small"
-                  src={cv?.avatarUrl}
-                  circular
-                  key={cv?.id}
-                />
-              ))}
-            {/* </Card.Content>
-          </Card>
-          </Table.Row>
-        </Table.Header>
-         
-        </CardGroup> */}
+        {cv.map((cv) => (
+          <Image
+            className="cardsUi"
+            floated="center"
+            size="small"
+            src={cv?.avatarUrl}
+            circular
+            key={cv?.id}
+          />
+        ))}
       </Table.Body>
-     
+
       <Table celled color={"black"}>
         <Table.Header celled color={"black"}>
           <Table.Row>
