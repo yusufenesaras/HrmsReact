@@ -36,6 +36,8 @@ export default function LanguageUpdate() {
           candidateLanguageService
             .update(values)
             .then((result) => console.log(result.data.data));
+            alert("Başarılı!");
+          window.location.reload();
         }}
       >
         <Form className="ui form">

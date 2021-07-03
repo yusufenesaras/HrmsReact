@@ -35,8 +35,8 @@ export default function SchoolUpdate() {
         let candidateSchoolService = new CandidateSchoolService();
         candidateSchoolService
         .update(values).then((result) => console.log(result.data.data))
-        // alert("Başarılı!")
-        // window.location.reload();
+        alert("Başarılı!");
+        window.location.reload();
       }}
       >
         <Form className="ui form">

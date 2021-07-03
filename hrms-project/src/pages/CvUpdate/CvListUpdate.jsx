@@ -31,6 +31,8 @@ export default function CvListUpdate() {
           candidateCvService
             .update(values)
             .then((result) => console.log(result.data.data));
+            alert("Başarılı!");
+          window.location.reload();
         }}
       >
         <Form className="ui form">

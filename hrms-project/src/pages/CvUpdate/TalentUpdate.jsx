@@ -25,6 +25,8 @@ export default function TalentUpdate() {
           candidateTalentService
             .update(values)
             .then((result) => console.log(result.data.data));
+            alert("Başarılı!");
+          window.location.reload();
         }}
       >
         <Form className="ui form">

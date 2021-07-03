@@ -26,11 +26,7 @@ import EmployerUpdate from "../pages/EmployerUpdate";
 import ActiveEmployer from "../pages/ActiveEmployer";
 import EmployerJobAdvertList from "../pages/EmployerJobAdvertList";
 import ActiveEmployerUpdate from "../pages/ActiveEmployerUpdate";
-import TalentUpdate from "../pages/CvUpdate/TalentUpdate";
-import LanguageUpdate from "../pages/CvUpdate/LanguageUpdate"
-import SchoolUpdate from "../pages/CvUpdate/SchoolUpdate";
-import ExpreienceUpdate from "../pages/CvUpdate/ExpreienceUpdate";
-import CvListUpdate from "../pages/CvUpdate/CvListUpdate";
+
 export default function Dashboard() {
   return (
     <div>
@@ -61,12 +57,8 @@ export default function Dashboard() {
             <Route path="/activeemployer" component={ActiveEmployer} />
             <Route path="/employerjobadvertlist" component={EmployerJobAdvertList}/>
             <Route path="/activeEmployerUpdate" component={ActiveEmployerUpdate}/>
-            <Route path="/talentUpdate" component={TalentUpdate} />
-            <Route path="/langUpdate" component={LanguageUpdate} />
-            <Route path="/schoolUpdate" component={SchoolUpdate} />
-            <Route path="/expUpdate" component={ExpreienceUpdate} />
-            <Route path="/candidateUpdate" component={CvListUpdate} />
             <Route path="/cvs/edit/:id" component={CvUpdate} />
+
           </Grid.Column>
         </Grid>
       </Container>

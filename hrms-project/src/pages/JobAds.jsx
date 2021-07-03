@@ -1,12 +1,19 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState, useParams } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {Menu,Table,Button,GridColumn,GridRow,Pagination,Rating,} from "semantic-ui-react";
+import {
+  Menu,
+  Table,
+  Button,
+  GridColumn,
+  GridRow,
+  Pagination,
+  Rating,
+} from "semantic-ui-react";
 import JobAdService from "../services/JobAdService";
 import CityFilter from "../layouts/CityFilter";
 import WorkTypeFilter from "../layouts/WorkTypeFilter";
 import { addToFavorite } from "../store/actions/favoriteAction";
-import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import { useDispatch } from "react-redux";
 
 export default function JobAds() {
@@ -23,17 +30,9 @@ export default function JobAds() {
   let jobAdService = new JobAdService();
   useEffect(() => {
     jobAdService
-      .getPageNoPageSize(activePage, pageSize)
+      .getConfirmedJobAdsWithPageable(activePage, pageSize)
       .then((result) => setAdverts(result.data.data));
   }, [activePage, pageSize]);
-
-  useEffect(() => {
-    
-    let jobAdService = new JobAdService();
-    jobAdService.getActiveJobAds().then((result) => {
-      setAdverts(result.data.data);
-    });
-  }, []);
 
   useEffect(() => {
     let filteredJobByJobAdverts;
@@ -59,8 +58,7 @@ export default function JobAds() {
 
   const handleAddToFavorite = (adverts) => {
     dispatch(addToFavorite(adverts));
-    toast.success(`${adverts.jobtitle.title} Sepete eklendi!`);
-    console.log(adverts.jobtitle.title);
+    alert(`${adverts.jobtitle.title} Sepete eklendi!`);
   };
 
   const onChange = (e, pageInfo) => {
@@ -102,7 +100,7 @@ export default function JobAds() {
                 <Table.Row key={jobAdvert.id}>
                   <Table.Cell>{jobAdvert.employer.companyName}</Table.Cell>
                   <Table.Cell>{jobAdvert.city.cityName}</Table.Cell>
-                  <Table.Cell>{jobAdvert?.jobtitle?.title}</Table.Cell>
+                  <Table.Cell>{jobAdvert.jobtitle.title}</Table.Cell>
                   <Table.Cell>{jobAdvert.workType.workType}</Table.Cell>
                   <Table.Cell>{jobAdvert.workHour.workHours}</Table.Cell>
                   <Table.Cell>
@@ -130,12 +128,12 @@ export default function JobAds() {
                     />
                   </Table.Cell>
                   <Table.Cell>
-                  <Rating
-                        onClick={() => handleAddToFavorite(jobAdvert)}
-                        icon="heart"
-                        defaultRating={0}
-                        maxRating={1}
-                      />
+                    <Rating
+                      onClick={() => handleAddToFavorite(jobAdvert)}
+                      icon="heart"
+                      defaultRating={0}
+                      maxRating={1}
+                    />
                   </Table.Cell>
                   <Table.Footer></Table.Footer>
                 </Table.Row>
@@ -152,7 +150,7 @@ export default function JobAds() {
                     totalPages={10}
                   />
                   <p></p>
-                
+
                   <Button.Group>
                     <Button onClick={() => pageAble(10)}>10</Button>
                     <Button.Or />
@@ -170,11 +168,11 @@ export default function JobAds() {
       </Table>
     </div>
   );
-  function handleSelectWorkType(workTypeId) {
-    setSelectedWorkType(workTypeId);
+  function handleSelectWorkType(id) {
+    setSelectedWorkType(id);
   }
 
-  function handleSelectCity(cityId) {
-    setSelectedCity(cityId);
+  function handleSelectCity(id) {
+    setSelectedCity(id);
   }
 }
