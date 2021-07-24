@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import JobAdService from "../services/JobAdService";
+import JobAdService from "../../services/JobAdService";
 import { Table, Label, Icon, Button } from "semantic-ui-react";
 
 export default function EmployerJobAdvertList() {
@@ -8,13 +8,13 @@ export default function EmployerJobAdvertList() {
   useEffect(() => {
     let jobAdService = new JobAdService();
     jobAdService
-      .getEmployerJobAds(1)
+      .getAll()
       .then((result) => setJobAdverts(result.data.data));
   }, []);
 
   let changeIsOpenByEmployer = (id) => {
     let jobAdService = new JobAdService();
-    jobAdService.getAllOpenJobAdvertByEmployer(id);
+    jobAdService.changeActiveStatus(id);
     window.location.reload();
   };
 
@@ -58,7 +58,7 @@ export default function EmployerJobAdvertList() {
               </Table.Cell>
               <Table.Cell>{jobAdvert.appealExpirationDate}</Table.Cell>
               <Table.Cell>{jobAdvert.description}</Table.Cell>
-              {jobAdvert.isVerified ? (
+              {jobAdvert.active ? (
                 <Table.Cell>
                   <Label color="green" style={{ width: "100%" }}>
                     İş ilanı Açık

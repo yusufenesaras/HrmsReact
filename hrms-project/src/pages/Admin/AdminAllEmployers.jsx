@@ -1,6 +1,6 @@
   
 import React from 'react'
-import Employers from './Employers'
+import Employers from '../Employers'
 export default function AdminAllEmployers() {
     
     return (

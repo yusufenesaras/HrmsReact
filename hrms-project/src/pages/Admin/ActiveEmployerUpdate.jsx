@@ -10,7 +10,7 @@ import {
   Icon,
 } from "semantic-ui-react";
 import * as Yup from "yup";
-import EmployerService from "../services/EmployerService";
+import EmployerService from "../../services/EmployerService";
 export default function ActiveEmployerUpdate({ employer }) {
 
     const [open, setOpen] = useState(false);

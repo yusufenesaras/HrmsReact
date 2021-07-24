@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { Table, Label, Icon, Button } from "semantic-ui-react";
-import JobAdService from "../services/JobAdService";
+import JobAdService from "../../services/JobAdService";
 
 export default function AdminJobAdvertList() {
   
@@ -16,7 +16,7 @@ export default function AdminJobAdvertList() {
 
   let changeIsActiveByCandidate = (id) => {
     let jobAdService = new JobAdService();
-    jobAdService.changeActiveStatus(id);
+    jobAdService.changeIsActiveByAdmin(id);
     window.location.reload();
   };
   return (
@@ -54,7 +54,7 @@ export default function AdminJobAdvertList() {
               </Table.Cell>
               <Table.Cell>{jobAdvert.appealExpirationDate}</Table.Cell>
               <Table.Cell>{jobAdvert.description}</Table.Cell>
-              {jobAdvert.active ? (
+              {jobAdvert.confirmed ? (
                 <Table.Cell>
                   <Label color="green" style={{ width: "100%" }}>
                     Aktif

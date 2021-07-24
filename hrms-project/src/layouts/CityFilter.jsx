@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown, Menu} from "semantic-ui-react";
+import { Dropdown, Menu } from "semantic-ui-react";
 import CityService from "../services/CityService";
 
-export default function CityFilter({onSelect}) {
 
-    const [cities, setCities] = useState([]);
+export default function CityFilter({ onSelect }) {
+  const [cities, setCities] = useState([]);
 
   useEffect(() => {
     let cityService = new CityService();
@@ -17,10 +17,10 @@ export default function CityFilter({onSelect}) {
     value: city.id,
   }));
 
-    return (
-        <div>
-          <Menu fluid compact icon="labeled" vertical>
-          <Menu.Item className="filter">
+  return (
+    <div>
+
+        <Menu.Item className="filter">
           <Menu.Header>Şehir</Menu.Header>
           <Menu.Menu>
             <Dropdown
@@ -35,12 +35,10 @@ export default function CityFilter({onSelect}) {
             />
           </Menu.Menu>
         </Menu.Item>
-          </Menu>
-            
-        </div>
-    )
-    function handleChange(event,data){
-        onSelect(data.value)
-          }
-}
 
+    </div>
+  );
+  function handleChange(event, data) {
+    onSelect(data.value);
+  }
+}

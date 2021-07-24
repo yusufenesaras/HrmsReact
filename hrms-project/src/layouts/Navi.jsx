@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Button, Menu, Icon} from "semantic-ui-react";
 import "../App.css";
-import FavoriteSummary from "./FavoriteSummary";
 
 export default function Navi() {
   return (
@@ -17,9 +16,9 @@ export default function Navi() {
               <Icon name="user" color="teal"/>
               Personel
             </Menu.Item>
-            <FavoriteSummary/>
+             {/* <FavouriteSummary/>  */}
             
-            <Button
+            {/* <Button
               primary
               as={Link}
               to={"/jobAdCreate"}
@@ -30,7 +29,7 @@ export default function Navi() {
               color="teal"
             >
               İlan Ekle
-            </Button>
+            </Button> */}
             <Menu.Menu position="right" style={{ margin: "0.5em" }}>
               <Button.Group>
                 <Button as={Link} to={"/login"} basic inverted color="red">

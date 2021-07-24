@@ -13,7 +13,13 @@ export default class EmployerService{
     getByIdForAdmins(id){
         return axios.get("http://localhost:8080/api/employers/getByIdForAdmins?id="+id)
     }
+    getByIdForEmployers(id){
+        return axios.get("http://localhost:8080/api/employers/getByIdForEmployers?id="+id)
+    }
     changeVerifiedStatus(id) {
         return axios.post("http://localhost:8080/api/employers/changeverifiedstatus?id="+id);
+    }
+    getAllByVerify(){
+        return axios.get("http://localhost:8080/api/employers/getAllByVerify");
     }
 }

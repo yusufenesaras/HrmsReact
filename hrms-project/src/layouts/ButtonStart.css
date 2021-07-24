@@ -1,0 +1,30 @@
+
+ .registerEmp {
+  width: 140px !important;
+  height: 45px !important;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2.5px !important;
+  font-weight: 500 !important;
+  color: #000 !important;
+  background-color: #2185D0 !important;
+  border: none !important;
+  border-radius: 45px !important;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease 0s !important;
+  cursor: pointer !important;
+  outline: none !important;
+}
+.button:hover {
+  background-color: #2ee59d !important;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4) !important;
+  color: #fff !important;
+  transform: translateY(-7px) !important;
+}
+.wrap {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+} 

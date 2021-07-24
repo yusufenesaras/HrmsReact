@@ -9,7 +9,7 @@ export default function Employers() {
   useEffect(() => {
     let employerService = new EmployerService();
     employerService
-      .getEmployers()
+      .getAllByVerify()
       .then((result) => setEmployers(result.data.data));
   }, []);
 
@@ -38,9 +38,9 @@ export default function Employers() {
                   basic
                   color="green"
                   as={Link}
-                  // to={`/employers/${employer.id}`}
+                  to={`/employersUpdate/${employer.id}`}
                 >
-                  Detaylar
+                  Güncelle
                 </Button>
 
                 <Button basic color="blue">

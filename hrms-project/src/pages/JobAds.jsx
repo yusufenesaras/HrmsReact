@@ -7,26 +7,32 @@ import {
   GridColumn,
   GridRow,
   Pagination,
-  Rating,
 } from "semantic-ui-react";
 import JobAdService from "../services/JobAdService";
 import CityFilter from "../layouts/CityFilter";
 import WorkTypeFilter from "../layouts/WorkTypeFilter";
-import { addToFavorite } from "../store/actions/favoriteAction";
 import "react-toastify/dist/ReactToastify.min.css";
-import { useDispatch } from "react-redux";
+import FavService from "../services/FavService";
+import AddFavourite from "./Favourite/AddFavourite";
 
 export default function JobAds() {
   const [adverts, setAdverts] = useState([]);
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedWorkType, setSelectedWorkType] = useState(null);
-  const [filteredJobAdverts, setFilteredJobAdverts] = useState(null); //filtrelenmiş state
+  const [filteredJobAdverts, setFilteredJobAdverts] = useState(null);
   const [activePage, setActivePage] = useState(1);
   const [pageSize, setPageSize] = useState(2);
 
-  const dispatch = useDispatch();
+  let favService = new FavService();
+  const [candidateFavJobAds, setCandidateFavJobAds] = useState([]);
 
-  // const dispatch = useDispatch();
+  useEffect(() => {
+    favService.findByCandidateId(1).then((result) => {
+      setCandidateFavJobAds(result.data.data);
+      // console.log(result.data.data)
+    });
+  }, [candidateFavJobAds]);
+
   let jobAdService = new JobAdService();
   useEffect(() => {
     jobAdService
@@ -56,9 +62,29 @@ export default function JobAds() {
     setFilteredJobAdverts(filteredJobByJobAdverts);
   }, [selectedCity, selectedWorkType]);
 
-  const handleAddToFavorite = (adverts) => {
-    dispatch(addToFavorite(adverts));
-    alert(`${adverts.jobtitle.title} Sepete eklendi!`);
+  function handleSelectWorkType(id) {
+    setSelectedWorkType(id);
+  }
+
+  function handleSelectCity(id) {
+    setSelectedCity(id);
+  }
+
+  const saveHandler = (object) => {
+    console.log(object);
+    favService
+      .add(object)
+      .then((result) => console.log(result), 
+      alert("Favorilere Eklendi"));
+  };
+
+  const saveToDB = (object, bool) => {
+    if (bool) {
+      favService.delete(object.candidateId, object.jobAdvertisementId);
+      return;
+    } else {
+      favService.add(object);
+    }
   };
 
   const onChange = (e, pageInfo) => {
@@ -71,13 +97,9 @@ export default function JobAds() {
 
   return (
     <div>
-      <GridRow columns={3}>
+      <GridRow>
         <GridColumn>
-          {" "}
-          <CityFilter onSelect={handleSelectCity} />
-        </GridColumn>
-        <GridColumn>
-          {" "}
+          <CityFilter onSelect={handleSelectCity} /> <br></br>
           <WorkTypeFilter onSelect={handleSelectWorkType} />
         </GridColumn>
       </GridRow>
@@ -104,10 +126,21 @@ export default function JobAds() {
                   <Table.Cell>{jobAdvert.workType.workType}</Table.Cell>
                   <Table.Cell>{jobAdvert.workHour.workHours}</Table.Cell>
                   <Table.Cell>
-                    {" "}
-                    <Link to={`/jobadverts/${jobAdvert.id}`}>
-                      <Button color="grey">Details</Button>
-                    </Link>
+                    <Button
+                      as={Link}
+                      to={`/jobads/${jobAdvert.id}`}
+                      content="Detayları Gör"
+                      icon="right arrow"
+                      labelPosition="right"
+                    />
+                  </Table.Cell>
+                  <Table.Cell>
+                    <AddFavourite
+                      onSubmit={saveHandler}
+                      data={candidateFavJobAds}
+                      jobId={jobAdvert.id}
+                      onClick={saveToDB}
+                    ></AddFavourite>
                   </Table.Cell>
                 </Table.Row>
               ))
@@ -128,14 +161,13 @@ export default function JobAds() {
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <Rating
-                      onClick={() => handleAddToFavorite(jobAdvert)}
-                      icon="heart"
-                      defaultRating={0}
-                      maxRating={1}
-                    />
+                    <AddFavourite
+                      onSubmit={saveHandler}
+                      data={candidateFavJobAds}
+                      jobId={jobAdvert.id}
+                      onClick={saveToDB}
+                    ></AddFavourite>
                   </Table.Cell>
-                  <Table.Footer></Table.Footer>
                 </Table.Row>
               ))}
         </Table.Body>
@@ -149,16 +181,11 @@ export default function JobAds() {
                     onPageChange={onChange}
                     totalPages={10}
                   />
-                  <p></p>
-
-                  <Button.Group>
+                  <Button.Group color="teal" className="pageButtons">
                     <Button onClick={() => pageAble(10)}>10</Button>
-                    <Button.Or />
                     <Button onClick={() => pageAble(20)}>20</Button>
-                    <Button.Or />
-                    <Button>50</Button>
-                    <Button.Or />
-                    <Button>100</Button>
+                    <Button onClick={() => pageAble(50)}>50</Button>
+                    <Button onClick={() => pageAble(100)}>100</Button>
                   </Button.Group>
                 </Menu.Item>
               </Menu>
@@ -168,11 +195,4 @@ export default function JobAds() {
       </Table>
     </div>
   );
-  function handleSelectWorkType(id) {
-    setSelectedWorkType(id);
-  }
-
-  function handleSelectCity(id) {
-    setSelectedCity(id);
-  }
 }

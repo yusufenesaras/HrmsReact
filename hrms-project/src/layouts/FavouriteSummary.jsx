@@ -1,8 +1,8 @@
-import React from "react";
+// import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Dropdown } from "semantic-ui-react";
 
-export default function FavoriteSummary() {
+export default function FavouriteSummary() {
   const { favoriteItems } = useSelector((state) => state.favorite);
 
   return (

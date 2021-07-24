@@ -7,9 +7,10 @@ import {
   Icon,
   Segment,
   Image,
-  Message
+  Message,
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import "./ButtonStart.css";
 
 export default function Get() {
   return (
@@ -32,27 +33,33 @@ export default function Get() {
                 </Grid.Column>
 
                 <Grid.Column>
-                  
-
                   {/* <Button inverted color="blue" size="massive">
                     <Link as={Link} to={"/jobAdCreate"}>
                       İlan Ekle
                     </Link>
                     <Icon name="right arrow" />
                   </Button> */}
-                   <Message info>
-        <div className="wrap">
-          <Button className="registerEmp" as={Link} to={"/employerRegister"}>
-            İşveren Olarak Kaydol
-          </Button>
-        </div> <br/>
-        <div className="wrap">
-          <Button className="registerEmp" as={Link} to={"/candidateRegister"}>
-            Aday Olarak Kaydol
-          </Button>
-        </div>
-
-      </Message>
+                  <Message info>
+                    <div className="wrap">
+                      <Button
+                        className="registerEmp"
+                        as={Link}
+                        to={"/employerRegister"}
+                      >
+                        İşveren Olarak Kaydol
+                      </Button>
+                    </div>{" "}
+                    <br />
+                    <div className="wrap">
+                      <Button
+                        className="registerEmp"
+                        as={Link}
+                        to={"/candidateRegister"}
+                      >
+                        Aday Olarak Kaydol
+                      </Button>
+                    </div>
+                  </Message>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

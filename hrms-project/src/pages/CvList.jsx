@@ -23,7 +23,7 @@ export default function CvList() {
             <Table.HeaderCell>Açıklama</Table.HeaderCell>
             <Table.HeaderCell>Github Address</Table.HeaderCell>
             <Table.HeaderCell>LinkedIn Address</Table.HeaderCell>
-            <Table.HeaderCell>Detayları Gör</Table.HeaderCell>
+            <Table.HeaderCell>Detaylar</Table.HeaderCell>
             <Table.HeaderCell>İşlemler</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -61,7 +61,7 @@ export default function CvList() {
                   </Button.Content>
                 </Button>
               </Table.Cell>
-              <br/>
+              <Table.Cell>
               <Button
                 as={NavLink}
                 to={`/cvs/edit/${cadidatecv.candidateId}`}
@@ -71,26 +71,7 @@ export default function CvList() {
               >
                 Düzenle
               </Button>
-
-              {/* <CardContent extra>
-                <Button
-                  basic
-                  color="green"
-                  target={"_blank"}
-                  rel="noopener noreferrer"
-                >
-                  Güncelle
-                </Button>
-
-                <Button
-                  basic
-                  color="red"
-                  target={"_blank"}
-                  rel="noopener noreferrer"
-                >
-                  Sil
-                </Button>
-              </CardContent> */}
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

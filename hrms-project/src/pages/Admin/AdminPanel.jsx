@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Image, Grid } from "semantic-ui-react";
+import { Card, Image, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 export default function AdminPanel() {
   return (
@@ -17,19 +17,13 @@ export default function AdminPanel() {
                   ui={false}
                 />
                 <Card.Content>
-                  <Card.Header>İş ilanları</Card.Header>
+                  <Card.Header>Hrms Personeli için <br></br> İş ilanları</Card.Header>
                   <Card.Meta>
-                    <span className="date">Joined in 2015</span>
+                   
                   </Card.Meta>
                   <Card.Description>
                     Sistemdeki iş ilanlarının durumunu gözlemleyebilirsiniz
                   </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <a>
-                    <Icon name="user" />
-                    22 Friends
-                  </a>
                 </Card.Content>
               </Card>
             </Link>
@@ -47,19 +41,39 @@ export default function AdminPanel() {
                   size="mini"
                 />
                 <Card.Content>
-                  <Card.Header>Admin For Employers</Card.Header>
-                  <Card.Meta>
-                    <span className="date">Joined in 2015</span>
-                  </Card.Meta>
+                  <Card.Header>Hrms Personeli için <br></br> İş veren görüntüle</Card.Header>
                   <Card.Description>
                     Onay durumuna bak<br></br>
                   </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
+                {/* <Card.Content extra>
                   <a>
                     <Icon name="user" />
                     
                   </a>
+                </Card.Content> */}
+              </Card>
+            </Link>
+          </Grid.Column>
+          <Grid.Column>
+            <Link>
+              <Card>
+                <Image
+                  src={
+                    "https://www.pngitem.com/pimgs/m/128-1280822_check-mark-box-clip-art-blue-admin-icon.png"
+                  }
+                  wrapped
+                  ui={false}
+                  size="mini"
+                />
+                <Card.Content>
+                  <Card.Header>Hrms Personel Güncelleme</Card.Header>
+                  <Card.Meta>
+
+                  </Card.Meta>
+                  <Card.Description>
+                    Bilgilerini Güncelle<br></br>
+                  </Card.Description>
                 </Card.Content>
               </Card>
             </Link>
