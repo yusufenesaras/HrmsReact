@@ -26,7 +26,6 @@ import EmployerUpdate from "../pages/EmployerUpdate/EmployersUpdate";
 import ActiveEmployer from "../pages/Admin/ActiveEmployer";
 import EmployerJobAdvertList from "../pages/Employer/EmployerJobAdvertList";
 import EmployersUpdate from "../pages/EmployerUpdate/EmployersUpdate";
-import Update from "../pages/Employer/Update"
 
 
 export default function Dashboard() {
@@ -60,7 +59,6 @@ export default function Dashboard() {
             <Route path="/employerjobadvertlist" component={EmployerJobAdvertList}/>
             <Route path="/employerUpdate" component={EmployersUpdate}/>
             <Route path="/cvs/edit/:id" component={CvUpdate} />
-            <Route path="/eu" component={Update} />
 
 
           </Grid.Column>
